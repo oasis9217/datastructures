@@ -62,14 +62,16 @@ export default class Graph {
             visited[k] = false
         })
 
-        return this.dfsRecursionHelper(start, visited, route)
+        this.dfsRecursionHelper(start, visited, route)
+
+        console.log('dfs recursive', route)
+        return route
     }
     dfsRecursionHelper(node, visited, route) {
         visited[node.id] = true
         route.push(node.id)
 
         if (!Object.values(visited).includes(false)) {
-            console.log(route)
             return route
         }
 
@@ -80,20 +82,41 @@ export default class Graph {
             }
         })
     }
-    bfs() {
+    bfs(start) {
+        const queue = []
+        const visited = {}
+        const route = []
 
+        visited[start.id] = true
+        queue.push(start)
+
+        while (queue.length > 0) {
+            const current = queue.shift()
+            route.push(current.id)
+
+            this.map[current.id].forEach(neighbor => {
+                if (!visited[neighbor.id]) {
+                    visited[neighbor.id] = true
+                    queue.push(neighbor)
+                }
+            })
+        }
+
+        console.log('bfs: ', route)
+        return route
     }
 }
 
-// const graph = new Graph([
-//     ['A', 'B', 3],
-//     ['A', 'C', 2],
-//     ['B', 'D', 2],
-//     ['C', 'D', 1],
-//     ['C', 'E', 4],
-//     ['D', 'E', 2],
-// ])
-//
-// graph.print()
-// graph.dfs({id: 'A'})
-// graph.dfsRecursion({id: 'A'})
+const graph = new Graph([
+    ['A', 'B', 3],
+    ['A', 'C', 2],
+    ['B', 'D', 2],
+    ['C', 'D', 1],
+    ['C', 'E', 4],
+    ['D', 'E', 2],
+])
+
+graph.print()
+graph.dfs({id: 'A'})
+graph.dfsRecursion({id: 'A'})
+graph.bfs({id: 'A'})
