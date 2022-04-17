@@ -5,7 +5,7 @@ class QueueItem {
     }
 }
 
-class PriorityQueue {
+export default class PriorityQueue {
     constructor() {
         this.queue = []
     }
@@ -22,8 +22,7 @@ class PriorityQueue {
         return this.queue
     }
     dequeue() {
-        this.queue.shift()
-        return this.queue
+        return this.queue.shift()
     }
     front() {
         return this.queue[0]
@@ -40,37 +39,37 @@ class PriorityQueue {
     }
 }
 
-
-
-let priorityQueue = new PriorityQueue();
-
-// testing isEmpty and front on an empty queue
-// return true
-console.log(priorityQueue.isEmpty());
-
-// returns "No elements in Queue"
-console.log(priorityQueue.front());
-
-// adding elements to the queue
-priorityQueue.enqueue("Sumit", 2);
-priorityQueue.enqueue("Gourav", 1);
-priorityQueue.enqueue("Piyush", 1);
-priorityQueue.enqueue("Sunny", 2);
-priorityQueue.enqueue("Sheru", 3);
-
-// prints [Gourav Piyush Sumit Sunny Sheru]
-console.log(priorityQueue.print());
-
-// prints Gourav
-console.log(priorityQueue.front().data);
-
-// removes Gouurav
-// priorityQueue contains
-// [Piyush Sumit Sunny Sheru]
-console.log(priorityQueue.dequeue());
-
-// Adding another element to the queue
-priorityQueue.enqueue("Sunil", 2);
-
-// prints [Piyush Sumit Sunny Sunil Sheru]
-console.log(priorityQueue.print());
+//
+//
+// let priorityQueue = new PriorityQueue();
+//
+// // testing isEmpty and front on an empty queue
+// // return true
+// console.log(priorityQueue.isEmpty());
+//
+// // returns "No elements in Queue"
+// console.log(priorityQueue.front());
+//
+// // adding elements to the queue
+// priorityQueue.enqueue("Sumit", 2);
+// priorityQueue.enqueue("Gourav", 1);
+// priorityQueue.enqueue("Piyush", 1);
+// priorityQueue.enqueue("Sunny", 2);
+// priorityQueue.enqueue("Sheru", 3);
+//
+// // prints [Gourav Piyush Sumit Sunny Sheru]
+// console.log(priorityQueue.print());
+//
+// // prints Gourav
+// console.log(priorityQueue.front().data);
+//
+// // removes Gouurav
+// // priorityQueue contains
+// // [Piyush Sumit Sunny Sheru]
+// console.log(priorityQueue.dequeue());
+//
+// // Adding another element to the queue
+// priorityQueue.enqueue("Sunil", 2);
+//
+// // prints [Piyush Sumit Sunny Sunil Sheru]
+// console.log(priorityQueue.print());
